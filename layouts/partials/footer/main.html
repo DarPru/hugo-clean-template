@@ -1,0 +1,6 @@
+<footer>
+	{{.Site.Params.copyright | safeHTML}}{{now.Year}}
+</footer>
+{{range .Site.Params.scripts}}
+<script type="text/javascript" src="{{ . | absURL}}" defer="defer"></script>
+{{end}}

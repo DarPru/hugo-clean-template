@@ -1,0 +1,140 @@
+# Урл сайта
+baseURL = 'http://example.org/'
+
+# основной язык сайта
+defaultContentLanguage = "ru"
+languageCode = 'ru'
+
+# тут задаем значение пагинации если нужна, если нет - удаляем
+paginate = 1
+
+# не трогаем эту часть
+
+assetDir = "static"
+disableHugoGeneratorInject = true
+enableRobotsTXT = true
+canonifyURLs = true
+
+# ОТКЛЮЧАЕМ ТАКСОНОМИИ, ЧТОБЫ НЕ ГЕНЕРИЛИСЬ ПАПКИ TAGS И CATEGORIES  
+
+disableKinds = ["taxonomy"]
+ignoreErrors = ["error-disable-taxonomy"]
+
+# ПЕРЕОПРЕДЕЛЯЕМ ССЫЛКИ, ЧТОБЫ УБРАТЬ ИЗ НИХ НАЗВАНИЕ ПАПКИ
+
+[permalinks]
+posts  = "/:filename/"
+
+
+# ЯЗЫКОВЫЕ ВЕРСИИ САЙТА
+
+[languages]
+[languages.ru]
+contentDir = "content/ru"
+languageName = "ru"
+[languages.en]
+contentDir = "content/en"
+languageName = "en"
+
+# АВТОМАТИЧЕСКАЯ ПОДСТАНОВКА ДАТЫ ПУБЛИКАЦИИ
+
+[frontmatter]
+date = ["publishDate", ":filename", "date", ":fileModTime"]
+publishDate = ["publishDate", ":filename", "date", ":fileModTime"]
+lastmod = ["lastmod", ":fileModTime"]
+
+# ОБЩИЕ ПАРАМЕТРЫ ДЛЯ САЙТМЕПА
+
+[sitemap]
+changefreq = 'weekly'
+priority = 0.5	
+
+# ГЛОБАЛЬНЫЕ ПАРАМЕТРЫ САЙТА
+
+[params]
+# должно совпадать с основным языком сайта
+defaultContentLanguage = "ru"
+# закрыть от нидекса
+
+noindex = false
+
+# Хедер и слив
+
+logo = '/img/testlogo.jpg'
+ref = 'Ссылка слива'
+styles = [
+	'/css/main.css'
+]
+
+# Футер 
+
+scripts = []
+copyright = "lorem lisum dolor <span style=\"color: blue\">lisum</span> "
+
+# Дефолтная мета
+
+separator = "-"
+sitename = "mysite"
+
+[params.title]
+page = "@post_title@ @sep@ 🏆 @sitename@"
+default = "@post_title@ @sep@ 🏆 @sitename@"
+
+[params.description]
+page = "@post_title@ @sep@ 🏆 @sitename@"
+default = "@post_title@ @sep@ 🏆 @sitename@"
+
+
+# МЕНЮ 
+
+[menu]
+
+# На основной версии 
+
+[[menu.header]]
+name = "Домой"
+url = "/" 
+weight = 1
+title = "lorem ipsum"
+[[menu.header]]
+name = "Страница"
+url = "/new-page/" 
+weight = 2
+title = "lorem ipsum"
+[[menu.header]]
+name = "Посты"
+url = "/posts/" 
+weight = 3
+identifier = "has_submenu"
+[[menu.header]]
+name = "Пост 1"
+url = "/post-1/" 
+weight = 1
+parent = "has_submenu"
+[[menu.header]]
+name = "Пост 2"
+url = "/post-2/" 
+weight = 2
+parent = "has_submenu"
+[[menu.header]]
+name = "Новости"
+url = "/news/" 
+weight = 4
+identifier = "has_submenu_2"
+[[menu.header]]
+name = "Новость"
+url = "/news/test/" 
+weight = 1
+parent = "has_submenu_2"
+
+# На языковой версии, дальше просто копипастим и меняем слаг языка 
+
+[[languages.en.menu.header]]
+name = "Home page"
+url = "/en/" 
+weight = 1
+title = "lorem ipsum"
+[[languages.en.menu.header]]
+name = "New Page"
+url = "/en/new-page/" 
+weight = 2

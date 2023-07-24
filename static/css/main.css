@@ -1,0 +1,135 @@
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/jizaRExUiTo99u79D0KExQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'PT Sans', sans-serif;
+}
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0 10%;
+	padding-top: 20px;
+}
+header > a > img {
+	width: 150px;
+	height: auto;
+}
+header nav ul {
+	display: flex;
+	gap: 10px;
+}
+header nav ul li {
+	list-style-type: none;
+
+}
+header nav ul li a {
+	text-transform: uppercase;
+	color: #000;
+	text-decoration: none;
+}
+header nav ul.sub_menu {
+	display: none;
+	position: absolute;
+	color: #fff;
+	border-bottom-right-radius: 8px;
+	border-bottom-left-radius: 8px;
+	box-shadow: 0px 2px 3px 0px #0000006b;
+	padding: 10px;
+	transform: translateX(-10px);
+}
+.sub_menu_inner {
+	margin-top: 10px;
+}
+header nav ul li.menu-item-has-children:hover .sub_menu {
+	display: block;
+}
+header .buttons {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+}
+header .buttons button {
+	border: 1px #000 solid;
+	border-radius: 8px;
+	padding: 10px 20px;
+	background-color: transparent;
+	cursor: pointer;
+}
+header .buttons button:hover {
+	background-color: #00000017;
+}
+.langs {
+	width: 30px;
+	height: 30px;
+}
+.langs span {
+	cursor: pointer;
+}
+.langs img {
+	border-radius: 50%;
+	width: 30px;
+	height: 30px;
+	object-fit: cover;
+}
+#langs_menu {
+	display: none;
+}
+.langs:hover #langs_menu {
+	display: block;
+}
+#langs_menu li {
+	list-style-type: none;
+}
+#langs_menu li {
+	padding-top: 10px;
+}
+.container {
+	margin: 50px 10%;
+
+}
+main h1, main h2, main h3, main h4 {
+	margin: 10px 0;
+}
+main p {
+	padding: 20px 0;
+	line-height: 1.5
+}
+main ol, main ul {
+	margin-left: 30px;
+}
+main li {
+	margin: 5px;
+}
+main a {
+text-decoration: none;
+color: red;
+}
+main img {
+	width: 100%;
+	height: auto;
+}
+footer {
+	margin: 0 10%;
+	padding: 30px 0;
+	border-top: 1px solid #000;
+}
+
+@media (max-width: 1070px) {
+	header nav {
+		display: none;
+	}
+}
+@media (max-width: 550px) {
+	header .buttons {
+		display: none;
+	}
+}

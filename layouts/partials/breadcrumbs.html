@@ -1,0 +1,9 @@
+{{/* ТУТ ВЕРСТАЕМ ХЛЕБНЫЕ КРОШКИ */}}
+<ul style="display: flex; gap: 10px; align-items: center; list-style-type: none;">
+    {{- range .Ancestors.Reverse }}
+    <li><a href="{{ .Permalink }}">{{ .Params.ankor }}</a></li> <span> -> </span>
+    {{- end }}
+    <li class="active" aria-current="page">
+        <span>{{ .Params.ankor  }}</span>
+    </li>
+</ul>

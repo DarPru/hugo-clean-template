@@ -1,0 +1,14 @@
+{{partial "head/default-meta.html" .}}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ $.Scratch.Get "title" }}</title>
+{{partial "head/robots.html" . }}
+{{partial "head/alternate.html" . }}
+{{partial "head/paginator.html" . }}
+{{partial "head/seo.html" . }}
+{{partial "head/schema.html" . }}
+{{partial "head/favs.html" .}}
+{{range .Site.Params.styles}}
+<link rel="stylesheet" href="{{ . | absURL}}"  media="all" defer>
+
+{{end}}

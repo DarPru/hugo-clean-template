@@ -1,0 +1,24 @@
+- id: login
+  translation: To come in
+- id: register
+  translation: Register
+- id: list_h1
+  translation: Here is the catalog
+- id: single_h1
+  translation: This is the default layout for all pages and posts
+- id: main_h1
+  translation: This is the main page
+- id: main_instruction
+  translation: Put the layout for the main page here, ignoring the code from the baseof
+    file
+- id: content_title
+  translation: Display content
+- id: md_field_title
+  translation: Removing fields from the markdown file
+- id: test1
+  translation: Test field 1
+- id: test2
+  translation: Test field 2
+- id: test3
+  translation: Test field 3
+

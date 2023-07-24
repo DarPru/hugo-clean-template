@@ -1,0 +1,9 @@
+{{ $src := .Destination | safeURL  }}
+{{ $alt := .PlainText | safeHTML }}
+{{- with resources.GetMatch ($src | relURL) -}}
+{{- $full := .Resize (printf "%dx%d q50 webp" .Width .Height) -}}
+{{- $big := .Resize "1024x q50 webp" -}}
+{{- $medium := .Resize "768x q50 webp" -}}
+{{- $small := .Resize "300x q50 webp" -}}
+<img decoding="async" src="{{$full.RelPermalink | absURL}}" alt="{{$alt}}" title="{{$alt}}"  width="{{.Width}}" height="{{.Height}}" srcset="{{$big.RelPermalink | absURL}} 1024w, {{$small.RelPermalink | absURL}} 300w, {{$medium.RelPermalink | absURL}} 768w, {{$full.RelPermalink | absURL}} {{.Width}}w" sizes="(max-width: 1033px) 100vw, 1033px">
+{{end}}

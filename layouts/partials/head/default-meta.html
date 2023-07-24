@@ -1,0 +1,32 @@
+{{-  $.Scratch.Set "title" ""  -}}
+{{- $.Scratch.Set "description" ""  -}}
+
+
+{{-  with .Title  -}}
+
+{{- /* из маркдауна если есть */ -}}
+
+{{-  $.Scratch.Set "title" (. | markdownify)  -}}{{-  else  -}}
+
+{{- /* по типу из конфига */ -}}
+
+{{-  with index site.Params.title .Type  -}}{{-  $.Scratch.Set "title" (. | replaceRE `@post_title@` $.Page.Params.ankor | replaceRE `@sep@` $.Site.Params.separator  | replaceRE `@sitename@` $.Site.Params.sitename ) -}}{{-  else  -}}
+
+{{- /* дефолт */ -}}
+
+{{- $.Scratch.Set "title" (.Site.Params.Title.default | replaceRE `@post_title@` $.Page.Params.ankor | replaceRE `@sep@` $.Site.Params.separator  | replaceRE `@sitename@` $.Site.Params.sitename ) -}}{{-  end  -}}{{-  end  -}}
+
+
+{{-  with .Params.description  -}}
+
+{{- /* из маркдауна если есть */ -}}
+
+{{-  $.Scratch.Set "description" (. | markdownify) -}}{{-  else  -}}
+
+{{- /* по типу из конфига */ -}}
+
+{{-  with index site.Params.description .Type  -}}{{-  $.Scratch.Set "description" (. | replaceRE `@post_title@` $.Page.Params.ankor | replaceRE `@sep@` $.Site.Params.separator  | replaceRE `@sitename@` $.Site.Params.sitename ) -}}{{-  else  -}}
+
+{{- /* дефолт */ -}}
+
+{{-  $.Scratch.Set "description" (.Site.Params.Description.default | replaceRE `@post_title@` $.Page.Params.ankor | replaceRE `@sep@` $.Site.Params.separator  | replaceRE `@sitename@` $.Site.Params.sitename)  -}}{{-  end  -}}{{-  end  -}}

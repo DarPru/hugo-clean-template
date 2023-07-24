@@ -1,0 +1,7 @@
+User-agent: *
+
+Disallow: {{.Site.Params.ref}}
+
+
+Host: {{trim .Site.BaseURL "/"}}
+Sitemap: {{.Site.BaseURL}}sitemap.xml

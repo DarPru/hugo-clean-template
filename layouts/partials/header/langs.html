@@ -1,0 +1,15 @@
+{{/* ТУТ ВЕРСТАЕМ ЯЗЫКОВУЮ МЕНЮШКУ */}}
+{{/* УКАЗАТЬ ПУТЬ ДО ПАПКИ С ФЛАГАМИ И ИХ РАСШИРЕНИЕ */}}
+{{$img_flags_path := "/img/flags/@lang@.svg" | absURL }}
+{{ if .Translations }}
+<div class="langs">
+	<span><img src="{{$img_flags_path | replaceRE `@lang@` .Language.LanguageName }}" alt="{{.Language.LanguageName }}"></span>
+	<ul id="langs_menu">
+		{{ range .Translations }}{{if not .Params.noindex}}
+		<li>
+			<a href="{{ .Permalink | absURL }}"><img src="{{$img_flags_path | replaceRE `@lang@` .Language.LanguageName }}" alt="{{.Language.LanguageName }}"></a>
+		</li>
+		{{end}}{{end}}
+	</ul>
+</div>
+{{end}}

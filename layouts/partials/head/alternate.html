@@ -1,0 +1,11 @@
+{{ if .IsTranslated }}
+{{ range .AllTranslations }}
+{{- if not .Params.noindex }}
+<link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" />
+{{- end -}}
+{{ end }}{{ range .AllTranslations }}{{if eq .Language.Lang $.Site.Params.DefaultContentLanguage}}
+<link rel="alternate" hreflang="x-default" href="{{ .Permalink }}" />{{ end }}{{ end }}
+{{else}}
+<link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" />
+<link rel="alternate" hreflang="x-default" href="{{ .Permalink }}" />
+{{end}}

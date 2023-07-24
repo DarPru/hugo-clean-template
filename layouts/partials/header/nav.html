@@ -1,0 +1,23 @@
+<nav>
+    <ul>
+    	{{- $currentPage := . -}}
+        {{- range .Site.Menus.header -}}
+        {{- $menu_item_url := .URL | relLangURL -}}
+        {{- $page_url:= $currentPage.RelPermalink | relLangURL }}
+        <li {{if .HasChildren }} class="menu-item-has-children"{{end}}>
+            <a {{ if eq $menu_item_url $page_url }} style="color: red"{{end}} title="{{.Title}}" href="{{ .URL | absURL }}">{{.Name}}</a>
+            {{- if .HasChildren -}}
+            <ul class="sub_menu">
+                <div class="sub_menu_inner">
+                	{{- range .Children -}}
+                	<li>
+                		<a {{if .Title}} title="{{.Title}}"{{end}} href="{{ .URL | absURL }}">{{.Name}}</a>
+                	</li>
+                	{{- end -}}
+                </div>
+            </ul>
+            {{- end -}}
+        </li>
+        {{- end -}}
+    </ul>
+</nav>

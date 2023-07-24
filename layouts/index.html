@@ -1,0 +1,14 @@
+{{ define "main" }}
+<h1>{{i18n "main_h1"}}</h1>
+<p>{{i18n "main_instruction"}}</p>
+<article>
+	<h2>{{i18n "content_title"}}</h2>
+	{{.Content}}
+	<h2>{{i18n "md_field_title"}}</h2>
+	<ul>
+		<li><b>{{i18n "test1"}}:</b>{{.Params.test1}}</li>
+		<li><b>{{i18n "test2"}}:</b>{{.Params.test2}}</li>
+		<li><b>{{i18n "test3"}}:</b>{{.Params.test3}}</li>
+	</ul>
+</article>
+{{ end }}

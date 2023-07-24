@@ -1,0 +1,12 @@
+{{/* ТУТ ВЕРСТАЕМ ХЕДЕР */}}
+<header>
+    <a href="{{ absLangURL "" }}">
+        <img {{- with resources.GetMatch ($.Scratch.Get "image" | relURL) -}} {{- $image_obj := . }} width="{{$image_obj.Width}}" height="{{$image_obj.Height}}" {{end}} src="{{.Site.Params.logo}}" class="attachment-full size-full" alt="{{.Site.Params.sitename}}" decoding="async" loading="lazy">
+    </a>
+    {{partial "header/nav.html" .}}
+    <div class="buttons">
+        <button onClick="window.open('{{.Site.Params.ref | absURL }}');">{{i18n "login"}}</button>
+        <button onClick="window.open('{{.Site.Params.ref | absURL }}');">{{i18n "register"}}</button>
+        {{partial "header/langs.html" .}}
+    </div>
+</header>
